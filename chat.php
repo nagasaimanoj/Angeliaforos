@@ -12,25 +12,12 @@ if (!$_SESSION['user']) {
 
     <body>
         <div style='position:fixed; z-index:15; left:0; right:0; top:0;'>
-            <form action='db.php'>
-                <input type='hidden' name='formname' value='insertform' />
+            <form action='db.php' method='post'>
+                <input type='hidden' name='formname' value='sendmessage' />
+                <input type='hidden' name='reciever' value='manoj' />
                 <input type='hidden' name='sender' value='<?php echo $_SESSION['user']; ?>'/>
                 <table align='center' style='width:100%;' class='w3-card'>
                     <tr>
-                        <td>
-                            <select name='reciever' style='width:100%;' class='w3-input w3-round-large w3-text-white w3-light-green' required>
-                                <?php
-                                $conn = mysqli_connect('localhost', 'root', 'password', 'Angeliaforos') or die("<option class='w3-text-white' >could not connect to data-base</option>");
-                                $query = "select user from user_list where not user = '" . $_SESSION['user'] . "' order by user";
-                                $result = mysqli_query($conn, $query) or die(mysqli_error($conn));
-                                if (mysqli_num_rows($result) > 0) {
-                                    while ($row = mysqli_fetch_assoc($result)) {
-                                        echo "<option class='w3-text-white' value='" . $row['user'] . "'>" . $row['user'] . "</option>";
-                                    }
-                                }
-                                ?>
-                            </select>
-                        </td>
                         <td>
                             <input type='text' name='sentmessage' style='width:100%;' class='w3-input w3-round-large w3-text-white w3-light-green' name='message'
                                    placeholder='enter your message here' name='sentmessage' required/>
@@ -50,10 +37,10 @@ if (!$_SESSION['user']) {
         if (mysqli_num_rows($result) > 0) {
             while ($row = mysqli_fetch_assoc($result)) {
                 echo "<tr>";
-                if ($row['reciever'] == $_SESSION['user']) {
+                if ($row['sender'] == $_SESSION['user']) {
                     echo "<td><div align='right'><p class='w3-btn w3-round-xxlarge w3-text-grey w3-light-grey'><span class='w3-btn w3-round-xxlarge w3-text-white w3-cyan'>" . $row['sentmessage'] . "</span><span class='w3-btn w3-round w3-opacity'><sub>You</sub></span></p></div></td></tr>";
                 } else {
-                    echo "<td><div align='left'><p class='w3-btn w3-round-xxlarge w3-text-grey w3-light-grey'><span class='w3-btn w3-round w3-opacity'><sub>" . $row['reciever'] . "</sub></span><span class='w3-btn w3-round-xxlarge w3-text-white w3-grey'>" . $row['sentmessage'] . "</span></p></div></td></tr>";
+                    echo "<td><div align='left'><p class='w3-btn w3-round-xxlarge w3-text-grey w3-light-grey'><span class='w3-btn w3-round w3-opacity'><sub>" . $row['sender'] . "</sub></span><span class='w3-btn w3-round-xxlarge w3-text-white w3-grey'>" . $row['sentmessage'] . "</span></p></div></td></tr>";
                 }
             }
             echo "</table></div>";

@@ -3,7 +3,7 @@
 session_start();
 
 switch ($_REQUEST['formname']) {
-    case 'insertform':
+    case 'sendmessage':
         $result = run("INSERT INTO `Angeliaforos`.`messages_table` (`sender`,`reciever`,`sentmessage`) VALUES('"
                 . $_REQUEST['sender']
                 . "','"
@@ -23,7 +23,6 @@ switch ($_REQUEST['formname']) {
                     $_SESSION["user"] = $_REQUEST['uname'];
                 }
             }
-            mysqli_close($link);
         } else {
             echo "no records";
         }
