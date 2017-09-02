@@ -19,6 +19,9 @@ if (!$_SESSION['user']) {
                 <table align='center' style='width:100%;' class='w3-card'>
                     <tr>
                         <td>
+                            <a class='w3-input w3-round-large w3-text-white w3-light-green' href='db.php?formname=logout'>logout</a>
+                        </td>
+                        <td style='width:100%'>
                             <input type='text' name='sentmessage' style='width:100%;' class='w3-input w3-round-large w3-text-white w3-light-green' name='message'
                                    placeholder='enter your message here' name='sentmessage' required/>
                         </td>
