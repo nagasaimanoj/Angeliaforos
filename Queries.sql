@@ -1,7 +1,8 @@
 --create user_table
 CREATE TABLE `user_list` (
-	`user` VARCHAR(30) NOT NULL,
-	PRIMARY KEY (`user`)
+  `user` varchar(30) NOT NULL,
+  `password` varchar(10) NOT NULL,
+  PRIMARY KEY (`user`)
 );
 
 --add user
