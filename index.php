@@ -9,7 +9,7 @@ if (isset($_SESSION['user'])) {
         <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     </head>
     <body>
-        <div class='w3-card'>
+        <div class='w3'>
             <form action='db.php' method='post'>
                 <table border='1'>
                     <input type='hidden' name='formname' value='login'/>
