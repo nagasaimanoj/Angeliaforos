@@ -1,8 +1,9 @@
 <?php
 session_start();
 if (isset($_SESSION['user'])) {
-    header("location:chat.php");
+    header("location:friends.php");
 }
+
 ?>
 <html>
     <head>

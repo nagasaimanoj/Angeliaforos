@@ -8,9 +8,9 @@ switch ($_REQUEST['formname']) {
                 . "','"
                 . $_REQUEST['reciever']
                 . "','"
-                . $_REQUEST['sentmessage']
+                . htmlspecialchars($_REQUEST['sentmessage'])
                 . "');");
-        dispatch($result);
+                header("location:chat.php?reciever=". $_REQUEST['reciever']);
         break;
 
     case 'login':
@@ -25,17 +25,17 @@ switch ($_REQUEST['formname']) {
         } else {
             echo "no records";
         }
-        dispatch(true);
+        header("location:friends.php");
         break;
 
     case 'logout':
         session_unset();
         session_destroy();
-        dispatch(true);
+        header("location:index.php");
         break;
 
     default:
-        dispatch(true);
+        header("location:index.php");
         break;
 }
 
@@ -46,14 +46,6 @@ function run($query) {
         return $result;
     } else {
         die('Could not connect: ' . mysql_error());
-    }
-}
-
-function dispatch($isSuccess) {
-    if ($isSuccess) {
-        header("location:index.php");
-    } else {
-        die("some error happened ");
     }
 }
 
