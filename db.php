@@ -1,7 +1,6 @@
 <?php
 
 session_start();
-
 switch ($_REQUEST['formname']) {
     case 'sendmessage':
         $result = run("INSERT INTO `Angeliaforos`.`messages_table` (`sender`,`reciever`,`sentmessage`) VALUES('"
