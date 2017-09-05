@@ -23,7 +23,7 @@ switch ($_REQUEST['formname']) {
                 }
             }
         } else {
-            echo "no records";
+            echo "login failed";
         }
         header("location:friends.php");
         break;
