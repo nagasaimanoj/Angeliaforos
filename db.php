@@ -8,7 +8,7 @@ switch ($_REQUEST['formname']) {
                 . "','"
                 . $_REQUEST['reciever']
                 . "','"
-                . htmlspecialchars($_REQUEST['sentmessage'])
+                . $_REQUEST['sentmessage']
                 . "');");
                 header("location:chat.php?reciever=". $_REQUEST['reciever']);
         break;

@@ -44,7 +44,7 @@ echo "
             while ($row = mysqli_fetch_assoc($result)) {
                 echo "<tr>";
                 if ($row['sender'] == $_SESSION['user']) {
-                    echo "<td><div align='right'><p class='w3-btn w3-round-xxlarge w3-text-grey w3-light-grey'><span class='w3-btn w3-round-xxlarge w3-text-white w3-cyan'>" . htmlspecialchars($row['sentmessage']) . "</span><span class='w3-btn w3-round w3-opacity'><sub>You</sub></span></p></div></td></tr>";
+                    echo "<td><div align='right'><p class='w3-btn w3-round-xxlarge w3-text-grey w3-light-grey'><span class='w3-btn w3-round-xxlarge w3-text-white w3-cyan'>" . $row['sentmessage'] . "</span><span class='w3-btn w3-round w3-opacity'><sub>You</sub></span></p></div></td></tr>";
                 } else {
                     echo "<td><div align='left'><p class='w3-btn w3-round-xxlarge w3-text-grey w3-light-grey'><span class='w3-btn w3-round w3-opacity'><sub>" . $row['sender'] . "</sub></span><span class='w3-btn w3-round-xxlarge w3-text-white w3-grey'>" . htmlspecialchars($row['sentmessage']) . "</span></p></div></td></tr>";
                 }
