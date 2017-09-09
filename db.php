@@ -48,5 +48,3 @@ function run($query) {
         die('Could not connect: ' . mysql_error());
     }
 }
-
-?>

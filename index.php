@@ -27,10 +27,3 @@ if (isset($_SESSION['user'])) {
                     <tr>
                         <td>
                             <input type='submit' style='width:100%' />
-                        </td>
-                    </tr>
-                </table>
-            </form>
-        </div>
-    </body>
-</html>

@@ -1,14 +1,14 @@
---create user_table
+--create user_table table
 CREATE TABLE `user_list` (
   `user` varchar(30) NOT NULL,
   `password` varchar(10) NOT NULL,
   PRIMARY KEY (`user`)
 );
 
---add user
+--adding user
 INSERT INTO `angeliaforos`.`user_list` (`user`) VALUES ('manoj');
 
---create messages_table table
+--creating messages_table table
 CREATE TABLE `messages_table` (
 	`serial` INT(5) NOT NULL AUTO_INCREMENT,
 	`sender` VARCHAR(30) NOT NULL,
@@ -22,12 +22,12 @@ CREATE TABLE `messages_table` (
 	CONSTRAINT `FK_messages_table_user_list_2` FOREIGN KEY (`reciever`) REFERENCES `user_list` (`user`) ON UPDATE CASCADE
 );
 
---insert messages
+--inserting into messages table
 INSERT INTO `Angeliaforos`.`messages_table` (`sender`,`reciever`,`sentmessage`)
     VALUES(current_user, selected_contact, "text message");
 
 
---retrieve messages
+--retrieve messages from table
 SELECT `sender`,`sentmessage` FROM  `Angeliaforos`.`messages_table` 
     WHERE(`sender` = current_user AND `reciever` = selected_contact) 
     OR (`sender` = selected_contact AND `reciever` = current_user) 

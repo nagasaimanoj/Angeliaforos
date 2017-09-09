@@ -54,4 +54,3 @@ echo "
             echo "<h1>No Data in existing Records";
         }
         mysqli_close($conn);
-        ?>
